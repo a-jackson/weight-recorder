@@ -2,10 +2,17 @@
   "name": "weight_recorder",
   "version": "0.0.1",
   "description": "MQTT service to record weights to influxdb",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "./node_modules/ts-node/dist/bin.js src/index.ts"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.2"
+  }
 }
