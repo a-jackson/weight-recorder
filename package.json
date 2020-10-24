@@ -1,0 +1,11 @@
+{
+  "name": "weight_recorder",
+  "version": "0.0.1",
+  "description": "MQTT service to record weights to influxdb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
