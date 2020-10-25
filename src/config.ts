@@ -9,6 +9,8 @@ export class Config {
     public readonly influxUser?: string;
     public readonly influxPassword?: string;
 
+    public readonly csvPath?: string;
+
     constructor() {
         this.mqttUrl = process.env.MQTT_URL;
         if (!this.mqttUrl) {
@@ -32,5 +34,7 @@ export class Config {
         if (!this.influxDatabase) {
             throw new Error('INFLUX_DATABASE not specified');
         }
+
+        this.csvPath = process.env.CSV_PATH;
     }
 }
