@@ -1,7 +1,7 @@
 import { Client, connect } from 'mqtt';
 import { Config } from './config';
 
-export type WeightReceivedCallback = (name: string, weight: number) => void;
+export type WeightReceivedCallback = (name: string, weight: number, date: Date) => void;
 
 export class Mqtt {
     private client?: Client;
@@ -36,11 +36,15 @@ export class Mqtt {
     }
 
     private onWeight(name: string, weight: number) {
-        console.log(`weight for ${name} received: ${weight}`);
-        this.weightReceivedCallback(name, weight);
+        const now = new Date();
+        this.weightReceivedCallback(name, weight, now);
+        const payload = {
+            weight: weight,
+            date: now,
+        };
         this.client.publish(
             `${this.config.mqttBaseTopic}/${name}`,
-            weight.toString(),
+            JSON.stringify(payload),
             {
                 retain: true,
                 qos: 2,
