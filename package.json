@@ -3,8 +3,16 @@
   "version": "0.0.1",
   "description": "MQTT service to record weights to influxdb",
   "main": "dist/index.js",
-  "author": "",
-  "license": "ISC",
+  "author": "Andrew Jackson",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/a-jackson/weight-recorder",
+    "type": "git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "docker-build": "docker build -t ajackson3/weight-recorder:latest ."
+  },
   "dependencies": {
     "@influxdata/influxdb-client": "^1.7.1",
     "csv-writer": "^1.6.0",
