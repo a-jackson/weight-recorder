@@ -14,7 +14,7 @@
     "docker-build": "docker build -t ajackson3/weight-recorder:latest ."
   },
   "dependencies": {
-    "@influxdata/influxdb-client": "^1.7.1",
+    "@databases/sqlite": "^4.0.2",
     "csv-writer": "^1.6.0",
     "dotenv": "^8.2.0",
     "mqtt": "^4.2.1"

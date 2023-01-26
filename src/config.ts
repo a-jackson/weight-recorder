@@ -4,10 +4,7 @@ export class Config {
     public readonly mqttUser?: string;
     public readonly mqttPassword?: string;
 
-    public readonly influxUrl: string;
-    public readonly influxDatabase: string;
-    public readonly influxUser?: string;
-    public readonly influxPassword?: string;
+    public readonly dbPath: string;
 
     public readonly csvPath?: string;
 
@@ -23,18 +20,7 @@ export class Config {
         }
 
         this.mqttBaseTopic = process.env.MQTT_BASE_TOPIC || 'weights';
-
-        this.influxUrl = process.env.INFLUX_URL;
-        this.influxDatabase = process.env.INFLUX_DATABASE;
-        this.influxUser = process.env.INFLUX_USER;
-        this.influxPassword = process.env.INFLUX_PASSWORD;
-        if (!this.influxUrl) {
-            throw new Error('INFLUX_URL not specified');
-        }
-        if (!this.influxDatabase) {
-            throw new Error('INFLUX_DATABASE not specified');
-        }
-
         this.csvPath = process.env.CSV_PATH;
+        this.dbPath = process.env.DB_PATH || 'weights.db';
     }
 }
